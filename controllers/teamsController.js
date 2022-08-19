@@ -49,7 +49,6 @@ const getAllTeams = async (req, res) => {
       }
     });
   }
-  
   const limit = Number(req.query.limit) || 10;
   result = result.limit(limit);
   result = result.find(queryObject);
