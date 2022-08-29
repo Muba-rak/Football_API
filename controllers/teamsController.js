@@ -13,7 +13,7 @@ const getAllTeams = async (req, res) => {
   if (location) {
     queryObject.location = { $regex: location, $options: "i" };
   }
-  
+
   //sort
   if (sort) {
     const sortList = sort.split(",").join(" ");
@@ -49,7 +49,7 @@ const getAllTeams = async (req, res) => {
       }
     });
   }
-  const limit = Number(req.query.limit) || 10;
+  const limit = Number(req.query.limit);
   result = result.limit(limit);
   result = result.find(queryObject);
   const teams = await result;
